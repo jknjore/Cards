@@ -1,0 +1,35 @@
+#Mysql Database connection settings. Reads the values from intellij Environment Variables
+
+spring:
+  datasource:
+    url: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+
+#Open API Documentation; Access link http://{host}:{port}/swagger-ui/index.html
+
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+  api-docs:
+    path: /apidocs
+  writer-with-order-by-keys: true
+
+
+#JWT secret key and expiry: 60 minutes
+
+jwt:
+  secret-key: f14e560585b34fb5f83a6ed6691b9f4c38c3ae9a5866ceac09f9314d564e919c
+  expiry:
+    token:
+      minutes: 60
+    refresh:
+      minutes: 90
